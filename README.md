@@ -32,10 +32,20 @@ julia> Pkg.add("WidenableArrays")
 ## Examples
 
 ````julia
-using WidenableArrays: WidenableArrays
-````
+using WidenableArrays: widenable, unwidenable
+using Test: @test
+a = widenable(zeros(2, 2))
+@test eltype(a) === Float64
+a[1, 1] = 1 + 2im
+@test a[1, 1] == 1 + 2im
+@test eltype(a) === Complex{Float64}
 
-Examples go here.
+x = randn(2, 2)
+a = widenable(copy(x))
+a .= a .+ (1 + 2im) .* a
+@test eltype(a) === Complex{Float64}
+@test a == x .+ (1 + 2im) .* x
+````
 
 ---
 
