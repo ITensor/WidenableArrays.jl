@@ -33,25 +33,25 @@ end
 )
   return similar(a, eltype(a), ax)
 end
-function widenable_similar(a::AbstractArray, elt::Type, ax)
+function similar_widenable(a::AbstractArray, elt::Type, ax)
   return widenable(similar(unwidenable(a), elt, ax))
 end
 @interface ::AbstractWidenableArrayInterface function Base.similar(
   a::AbstractArray, elt::Type, ax
 )
-  return widenable_similar(a, elt, ax)
+  return similar_widenable(a, elt, ax)
 end
 # Fixes ambiguity error.
 @interface ::AbstractWidenableArrayInterface function Base.similar(
   a::AbstractArray, elt::Type, ax::Tuple{Vararg{Int}}
 )
-  return widenable_similar(a, elt, ax)
+  return similar_widenable(a, elt, ax)
 end
 # Fixes ambiguity error.
 @interface ::AbstractWidenableArrayInterface function Base.similar(
   a::AbstractArray, elt::Type, ax::Tuple{Base.OneTo,Vararg{Base.OneTo}}
 )
-  return widenable_similar(a, elt, ax)
+  return similar_widenable(a, elt, ax)
 end
 @interface ::AbstractWidenableArrayInterface function Base.getindex(
   a::AbstractArray, I::Int...
@@ -83,25 +83,25 @@ function Base.copyto!(dest::AbstractArray, bc::Broadcasted{<:AbstractWidenableAr
   copyto!(dest, unwidenable(bc))
   return dest
 end
-function widenable_copyto!(dest::AbstractArray, src)
+function copyto!_widenable(dest::AbstractArray, src)
   widenable!(dest, copyto!!(unwidenable(dest), unwidenable(src)))
   return dest
 end
 @interface ::AbstractWidenableArrayInterface function Base.copyto!(
   dest::AbstractArray, src::AbstractArray
 )
-  return widenable_copyto!(dest, src)
+  return copyto!_widenable(dest, src)
 end
 @interface ::AbstractWidenableArrayInterface function Base.copyto!(
   dest::AbstractArray, src::Broadcasted
 )
-  return widenable_copyto!(dest, src)
+  return copyto!_widenable(dest, src)
 end
 # Fix ambiguity error with Derive.jl.
 @interface ::AbstractWidenableArrayInterface function Base.copyto!(
   dest::AbstractArray, src::Broadcasted{DefaultArrayStyle{0}}
 )
-  return widenable_copyto!(dest, src)
+  return copyto!_widenable(dest, src)
 end
 
 function unwidenable(bc::Broadcasted)
