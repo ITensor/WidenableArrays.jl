@@ -1,9 +1,9 @@
 using Literate: Literate
-using PromotableStorageArrays: PromotableStorageArrays
+using WidenableArrays: WidenableArrays
 
 Literate.markdown(
-  joinpath(pkgdir(PromotableStorageArrays), "examples", "README.jl"),
-  joinpath(pkgdir(PromotableStorageArrays), "docs", "src");
+  joinpath(pkgdir(WidenableArrays), "examples", "README.jl"),
+  joinpath(pkgdir(WidenableArrays), "docs", "src");
   flavor=Literate.DocumenterFlavor(),
   name="index",
 )

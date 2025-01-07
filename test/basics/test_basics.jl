@@ -1,6 +1,6 @@
-using PromotableStorageArrays: PromotableStorageArrays
+using WidenableArrays: WidenableArrays
 using Test: @test, @testset
 
-@testset "PromotableStorageArrays" begin
+@testset "WidenableArrays" begin
   # Tests go here.
 end
