@@ -1,9 +1,9 @@
-# PromotableStorageArrays.jl
+# WidenableArrays.jl
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://ITensor.github.io/PromotableStorageArrays.jl/stable/)
-[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://ITensor.github.io/PromotableStorageArrays.jl/dev/)
-[![Build Status](https://github.com/ITensor/PromotableStorageArrays.jl/actions/workflows/Tests.yml/badge.svg?branch=main)](https://github.com/ITensor/PromotableStorageArrays.jl/actions/workflows/Tests.yml?query=branch%3Amain)
-[![Coverage](https://codecov.io/gh/ITensor/PromotableStorageArrays.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/ITensor/PromotableStorageArrays.jl)
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://ITensor.github.io/WidenableArrays.jl/stable/)
+[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://ITensor.github.io/WidenableArrays.jl/dev/)
+[![Build Status](https://github.com/ITensor/WidenableArrays.jl/actions/workflows/Tests.yml/badge.svg?branch=main)](https://github.com/ITensor/WidenableArrays.jl/actions/workflows/Tests.yml?query=branch%3Amain)
+[![Coverage](https://codecov.io/gh/ITensor/WidenableArrays.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/ITensor/WidenableArrays.jl)
 [![Code Style: Blue](https://img.shields.io/badge/code%20style-blue-4495d1.svg)](https://github.com/invenia/BlueStyle)
 [![Aqua](https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg)](https://github.com/JuliaTesting/Aqua.jl)
 
@@ -26,13 +26,13 @@ if you want to use SSH credentials, which can make it so you don't have to enter
 Then, the package can be added as usual through the package manager:
 
 ```julia
-julia> Pkg.add("PromotableStorageArrays")
+julia> Pkg.add("WidenableArrays")
 ```
 
 ## Examples
 
 ````julia
-using PromotableStorageArrays: PromotableStorageArrays
+using WidenableArrays: WidenableArrays
 ````
 
 Examples go here.

@@ -1,9 +1,9 @@
-# # PromotableStorageArrays.jl
+# # WidenableArrays.jl
 # 
-# [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://ITensor.github.io/PromotableStorageArrays.jl/stable/)
-# [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://ITensor.github.io/PromotableStorageArrays.jl/dev/)
-# [![Build Status](https://github.com/ITensor/PromotableStorageArrays.jl/actions/workflows/Tests.yml/badge.svg?branch=main)](https://github.com/ITensor/PromotableStorageArrays.jl/actions/workflows/Tests.yml?query=branch%3Amain)
-# [![Coverage](https://codecov.io/gh/ITensor/PromotableStorageArrays.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/ITensor/PromotableStorageArrays.jl)
+# [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://ITensor.github.io/WidenableArrays.jl/stable/)
+# [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://ITensor.github.io/WidenableArrays.jl/dev/)
+# [![Build Status](https://github.com/ITensor/WidenableArrays.jl/actions/workflows/Tests.yml/badge.svg?branch=main)](https://github.com/ITensor/WidenableArrays.jl/actions/workflows/Tests.yml?query=branch%3Amain)
+# [![Coverage](https://codecov.io/gh/ITensor/WidenableArrays.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/ITensor/WidenableArrays.jl)
 # [![Code Style: Blue](https://img.shields.io/badge/code%20style-blue-4495d1.svg)](https://github.com/invenia/BlueStyle)
 # [![Aqua](https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg)](https://github.com/JuliaTesting/Aqua.jl)
 
@@ -31,11 +31,22 @@ julia> Pkg.Registry.add(url="git@github.com:ITensor/ITensorRegistry.git")
 
 #=
 ```julia
-julia> Pkg.add("PromotableStorageArrays")
+julia> Pkg.add("WidenableArrays")
 ```
 =#
 
 # ## Examples
 
-using PromotableStorageArrays: PromotableStorageArrays
-# Examples go here.
+using WidenableArrays: widenable, unwidenable
+using Test: @test
+a = widenable(zeros(2, 2))
+@test eltype(a) === Float64
+a[1, 1] = 1 + 2im
+@test a[1, 1] == 1 + 2im
+@test eltype(a) === Complex{Float64}
+
+x = randn(2, 2)
+a = widenable(copy(x))
+a .= a .+ (1 + 2im) .* a
+@test eltype(a) === Complex{Float64}
+@test a == x .+ (1 + 2im) .* x

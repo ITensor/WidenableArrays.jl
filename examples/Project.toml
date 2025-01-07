@@ -1,2 +1,2 @@
 [deps]
-PromotableStorageArrays = "e204200e-d7ba-4b7e-bfa9-053a2e530198"
+WidenableArrays = "e204200e-d7ba-4b7e-bfa9-053a2e530198"

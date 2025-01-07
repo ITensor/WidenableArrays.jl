@@ -1,18 +1,18 @@
-using PromotableStorageArrays: PromotableStorageArrays
+using WidenableArrays: WidenableArrays
 using Documenter: Documenter, DocMeta, deploydocs, makedocs
 
 DocMeta.setdocmeta!(
-  PromotableStorageArrays, :DocTestSetup, :(using PromotableStorageArrays); recursive=true
+  WidenableArrays, :DocTestSetup, :(using WidenableArrays); recursive=true
 )
 
 include("make_index.jl")
 
 makedocs(;
-  modules=[PromotableStorageArrays],
+  modules=[WidenableArrays],
   authors="ITensor developers <support@itensor.org> and contributors",
-  sitename="PromotableStorageArrays.jl",
+  sitename="WidenableArrays.jl",
   format=Documenter.HTML(;
-    canonical="https://ITensor.github.io/PromotableStorageArrays.jl",
+    canonical="https://ITensor.github.io/WidenableArrays.jl",
     edit_link="main",
     assets=String[],
   ),
@@ -20,5 +20,5 @@ makedocs(;
 )
 
 deploydocs(;
-  repo="github.com/ITensor/PromotableStorageArrays.jl", devbranch="main", push_preview=true
+  repo="github.com/ITensor/WidenableArrays.jl", devbranch="main", push_preview=true
 )

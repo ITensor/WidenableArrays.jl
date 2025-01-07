@@ -1,6 +1,6 @@
 ---
-name: PromotableStorageArrays.jl feature request
-about: Suggest an idea for PromotableStorageArrays.jl
+name: WidenableArrays.jl feature request
+about: Suggest an idea for WidenableArrays.jl
 title: "[ENHANCEMENT] YOUR SHORT DESCRIPTION OF THE FEATURE REQUEST HERE"
 labels: ["enhancement"]
 assignees: ''

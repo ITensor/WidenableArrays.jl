@@ -1,4 +1,4 @@
-using PromotableStorageArrays
+using WidenableArrays
 using BenchmarkTools
 
 SUITE = BenchmarkGroup()
